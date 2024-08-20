@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block head%}
+<title>Truckers</title>
+{% endblock %} {%block body %}
+<table>
+    <tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Deliveries</th>
+        <th>Place</th>
+        <th>Model</th>
+        <th>Place order</th>
+    </tr>
+    {% for i in range(truckers|length) %}
+        <tr>
+            <td>{{i+1}}</td>
+            <td>{{truckers[i].username}}</td>
+            <td>{{truckers[i].deliveries}}</td>
+            <td>{{truckers[i].place}}</td>
+            <td>{{truckers[i].model}}</tr>
+            <td><button onclick='location.href="place-order-{{truckers[i].uid}}"'>Place</button></td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block head%}
+<title>Crops</title>
+{% endblock %} {%block body %}
+<form method="POST" id="add">
+    <input type="text" name="crop" value="" id="crop" hidden>
+    <input type="text" name="add" id="add" value="add" hidden>
+    <input type="submit" value="Add item">
+</form>
+<form method="POST" id="delete-form">
+    <input type="text" name="number" value="" id="number" hidden>
+    <input type="text" name="delete" id="delete" value="delete" hidden>
+    <input type="submit" value="" hidden>
+</form>
+<table>
+    <tr>
+        <th>S.no</th>
+        <th>Crop</th>
+        <th>Actions</th>
+        <th>{{crops}}</th>
+    </tr>
+    {% for i in range(crops|length) %}
+    <tr>
+        <th>{{i+1}}</th>
+        <th>{{crops[i]}}</th>
+        <th><a class="delete" href="/delete-{{i}}">Delete</a></th>
+    </tr>
+    {% endfor %}
+</table>
+
+<script>
+    document.getElementById("add").addEventListener("click",(e)=>{
+        e.preventDefault()
+        document.getElementById("crop").value = prompt("Enter crop name")
+        if (prompt != "") document.getElementById("add").submit()
+    })
+</script>
+{% endblock %}

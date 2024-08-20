@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block head%}
+<title>Register</title>
+{% endblock %} {%block body %}
+<form method="POST">
+  <input type="text" name="username" id="username" placeholder="username" required /><br><input type="password"
+    name="password" id="password" placeholder="password" required /><br>
+  <label for="type">I am a:</label>
+  <br>
+  <label for="farmer">Farmer</label>
+  <input type="radio" name="type" id="type" value="farmer" required>
+  <label for="type">Trucker</label>
+  <input type="radio" name="type" id="type" value="trucker" required>
+  <br>
+  <input type="text" name="place" id="place" placeholder="Place" required />
+  <br>
+  <input type="number" name="phone" id="phone" placeholder="Phone number" required />
+  <br>
+  <input type="text" name="model" id="model" placeholder="Truck Model (For truckers)"  />
+  <br><input type="submit" value="Register" />
+</form>
+{% endblock %}

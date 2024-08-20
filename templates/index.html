@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block head%}
+<title>Home</title>
+{% endblock %} {%block body %}
+
+<h1>Hello, {{user.username}}!</h1>
+
+<!-- if the person is a farmer -->
+<div class="container">
+    <button class="button-menu" id="crops" onclick="location.href='crops'">My Crops</button>
+    <button class="button-menu" id="truckers" onclick="location.href='truckers'">Truckers</button>
+    <button class="button-menu" id="orders">My Orders</button>
+</div>
+
+<form method="POST"><input type="submit" value="Logout"></form>
+
+{% endblock %}
